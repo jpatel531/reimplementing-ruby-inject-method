@@ -1,10 +1,7 @@
 class Array
 
-	def my_inject
-		accumulator = self.shift
-		# self.each do |element|
-		# 	accumulator += element
-		# end
+	def my_inject(parameter = nil)
+		accumulator = (!parameter.nil?) ? parameter : self.shift
 		self.each do |element|
 			accumulator = yield(accumulator, element)
 		end
