@@ -9,9 +9,8 @@ class Array
 	end
 
 
-
-	def my_inject_with_symbol(method)
-		accumulator = self.shift
+	def my_inject_with_symbol(parameter = nil, method)
+		accumulator = (!parameter.nil?) ? parameter : self.shift
 		self.each do |element| 
 			m = accumulator.method("#{method}")
 			accumulator = m.call(element)
