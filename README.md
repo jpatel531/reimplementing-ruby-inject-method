@@ -14,8 +14,8 @@ To learn about Ruby Enumerable methods in greater depth, while learning about th
 
 ##Technologies
 
-*Ruby
-*RSpec
+* Ruby
+* RSpec
 
 ##How to run
 
