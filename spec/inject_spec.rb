@@ -24,11 +24,11 @@ describe "my inject" do
 
 	it "can take a method symbol" do 
 		true_inject = array.inject(:*)
-		expect(array.my_inject_with_symbol(:*)).to eq true_inject
+		expect(array.my_inject(:*)).to eq true_inject
 	end
 
 	it "can take a method symbol and parameter" do 
 		true_inject = array.inject(2, :*)
-		expect(array.my_inject_with_symbol(2, :*)).to eq true_inject
+		expect(array.my_inject(2, :*)).to eq true_inject
 	end
 end

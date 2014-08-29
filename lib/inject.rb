@@ -1,21 +1,19 @@
 class Array
 
-	def my_inject(parameter = nil)
+	def my_inject(*params)
+		method = (params[0].is_a? Symbol) ? params[0] : params[1]
+		parameter = (params[0].is_a? Symbol) ? nil : params[0]
 		accumulator = (!parameter.nil?) ? parameter : self.shift
 		self.each do |element|
-			accumulator = yield(accumulator, element)
+			if block_given?
+				accumulator = yield(accumulator, element)
+			else
+				m = accumulator.method("#{method}")
+				accumulator = m.call(element)
+			end	
 		end
 		return accumulator
 	end
 
-
-	def my_inject_with_symbol(parameter = nil, method)
-		accumulator = (!parameter.nil?) ? parameter : self.shift
-		self.each do |element| 
-			m = accumulator.method("#{method}")
-			accumulator = m.call(element)
-		end
-		return accumulator
-	end
 
 end
